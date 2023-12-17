@@ -1,0 +1,57 @@
+<svg viewBox="0 0 357 216" xmlns="http://www.w3.org/2000/svg">
+	<rect x="0" y="0" width="357" height="216" fill="rgb(255,255,255)" transform="matrix(1 0 0 1 0 0)" stroke="rgb(137,137,137)" stroke-width="1"/>
+		<line x1="0" y1="0" x2="11" y2="0" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="200" x2="11" y2="200" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="400" x2="11" y2="400" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="600" x2="11" y2="600" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="800" x2="11" y2="800" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="1000" x2="11" y2="1000" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<line x1="0" y1="1200" x2="11" y2="1200" stroke="rgb(137,137,137)" stroke-width="6.67" transform="matrix(22.7 0 0 -0.15 32.1 187)" />
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(44.5, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >1</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(69.5, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >2</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(94.5, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >3</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(119, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >4</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(144, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >5</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(169, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >6</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(194, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >7</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(219, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >8</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(244, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >9</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(269, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >10</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 187)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >0</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 157)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >200</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 127)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >400</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 97)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >600</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 67.1)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >800</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 37.1)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >1000</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(20.7, 7.1)" font-size="10" font-family="Calibri" fill="rgb(0,0,0)" >1200</text>
+		<rect x="1" y="0" width="0.25" height="1" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="2" y="0" width="0.25" height="2" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="3" y="0" width="0.25" height="3" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="4" y="0" width="0.25" height="4" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="5" y="0" width="0.25" height="5" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="6" y="0" width="0.25" height="6" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="7" y="0" width="0.25" height="7" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="8" y="0" width="0.25" height="8" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="9" y="0" width="0.25" height="9" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="10" y="0" width="0.25" height="10" fill="rgb(68,114,196)" transform="matrix(25 0 0 -0.15 10.2 187)"/>
+		<rect x="1" y="0" width="0.25" height="1" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="2" y="0" width="0.25" height="4" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="3" y="0" width="0.25" height="9" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="4" y="0" width="0.25" height="16" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="5" y="0" width="0.25" height="25" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="6" y="0" width="0.25" height="36" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="7" y="0" width="0.25" height="49" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="8" y="0" width="0.25" height="64" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="9" y="0" width="0.25" height="81" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="10" y="0" width="0.25" height="100" fill="rgb(237,125,49)" transform="matrix(25 0 0 -0.15 16.5 187)"/>
+		<rect x="1" y="0" width="0.25" height="1" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="2" y="0" width="0.25" height="8" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="3" y="0" width="0.25" height="27" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="4" y="0" width="0.25" height="64" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="5" y="0" width="0.25" height="125" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="6" y="0" width="0.25" height="216" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="7" y="0" width="0.25" height="343" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="8" y="0" width="0.25" height="512" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="9" y="0" width="0.25" height="729" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+		<rect x="10" y="0" width="0.25" height="1000" fill="rgb(165,165,165)" transform="matrix(25 0 0 -0.15 22.7 187)"/>
+</svg>

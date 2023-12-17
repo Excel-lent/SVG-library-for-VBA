@@ -1,6 +1,6 @@
 # SVG library for VBA
 
-These are preleminary release of SVG library for VBA.
+This is a preleminary release of SVG library for VBA. Not everything is working properly. Not all properties are implemented.
 The aim of the library is to export charts in SVG format, i. e. in lossless image format.
 
 

@@ -16,7 +16,9 @@ Option Explicit
 
 Private plotAreaRectangle As New SvgRectangle
 Private Const todoRotationAngle& = 0
-Private mSvgBars As SvgBars
+Private mSvgBars As New SvgBars
+Private mSvgPoints As New SvgPoints
+Private mChartType$
 
 Private horizontalLabelsCollection As New Collection
 Private verticalLabelsCollection As New Collection
@@ -26,7 +28,7 @@ Public Sub Init(chrtObject As ChartObject)
     Dim plotAreaMinX!, plotAreaMinY!, plotAreaWidth!, plotAreaHeight!
     Dim scaleX!, scaleY!, zeroX!, zeroY!
     Dim mMaximumScale!, mMinimumScale!, mMajorUnits!
-    Dim nBars&, mGapWidth!, spaceBetween!, position!, offsetFirst!
+    Dim nVerticalLines&, mGapWidth!, spaceBetween!, position!, offsetFirst!
     Dim j!
     Dim mValues As Variant
     Dim hLine As SvgLine
@@ -40,10 +42,14 @@ Public Sub Init(chrtObject As ChartObject)
     mMinimumScale = chrtObject.Chart.Axes(xlValue).MinimumScale
     mMajorUnits = chrtObject.Chart.Axes(xlValue).MajorUnit
     
-    nBars = UBound(chrtObject.Chart.Axes(xlCategory).CategoryNames)
+    If chrtObject.Chart.ChartType = xlXYScatter Then
+        nVerticalLines = (chrtObject.Chart.Axes(xlCategory).MaximumScale - chrtObject.Chart.Axes(xlCategory).MinimumScale) / chrtObject.Chart.Axes(xlCategory).MajorUnit + 1
+    Else
+        nVerticalLines = UBound(chrtObject.Chart.Axes(xlCategory).CategoryNames)
+    End If
     
     zeroX = plotAreaMinX
-    scaleX = plotAreaWidth / (nBars + 1)
+    scaleX = plotAreaWidth / (nVerticalLines + 1)
     scaleY = plotAreaHeight / (mMaximumScale - mMinimumScale)
     zeroY = scaleY * mMaximumScale + plotAreaMinY
     
@@ -61,15 +67,25 @@ Public Sub Init(chrtObject As ChartObject)
     mStroke.Init strokeColor:=mColor, strokeWidth:=chrtObject.Chart.Axes(xlValue).MajorGridlines.Border.Weight / scaleY
     
     ' X axis labels
-    mValues = chrtObject.Chart.Axes(xlCategory).CategoryNames
-    spaceBetween = plotAreaWidth * mGapWidth / nBars / (1 + mGapWidth)
+    If chrtObject.Chart.ChartType = xlXYScatter Then
+        Set mValues = New Collection
+        For j = 1 To nVerticalLines
+            Call mValues.Add(chrtObject.Chart.Axes(xlCategory).MinimumScale + (j - 1) * chrtObject.Chart.Axes(xlCategory).MajorUnit)
+        Next j
+        mChartType = "xlXYScatter"
+    Else
+        mValues = chrtObject.Chart.Axes(xlCategory).CategoryNames
+        mChartType = "xlColumnClustered"
+    End If
+    
+    spaceBetween = plotAreaWidth * mGapWidth / nVerticalLines / (1 + mGapWidth)
     offsetFirst = spaceBetween / 2
     position = offsetFirst + plotAreaMinX
     Dim mText As SvgText
-    For j = 1 To nBars
+    For j = 1 To nVerticalLines
         Set mText = New SvgText
         mText.Init text:=CStr(mValues(j)), _
-                  posX:=position + plotAreaWidth / nBars / (1 + mGapWidth) / 2, _
+                  posX:=position + plotAreaWidth / nVerticalLines / (1 + mGapWidth) / 2, _
                   posY:=plotAreaHeight + plotAreaMinY + chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleY / 2, _
                   rotationAngle:=todoRotationAngle, _
                   textAnchor:="middle", _
@@ -78,7 +94,11 @@ Public Sub Init(chrtObject As ChartObject)
         
         Call horizontalLabelsCollection.Add(mText, CStr(j))
         
-        position = position + plotAreaWidth / UBound(mValues) / (1 + mGapWidth) + spaceBetween
+        If mChartType = "xlXYScatter" Then
+            position = position + plotAreaWidth / mValues.Count / (1 + mGapWidth) + spaceBetween
+        Else
+            position = position + plotAreaWidth / UBound(mValues) / (1 + mGapWidth) + spaceBetween
+        End If
     Next j
     
         ' TODO:
@@ -95,7 +115,7 @@ Public Sub Init(chrtObject As ChartObject)
         Set hLine = New SvgLine
         hLine.Init x1:=0, _
                    y1:=hLinePosition, _
-                   x2:=nBars + 1, _
+                   x2:=nVerticalLines + 1, _
                    y2:=hLinePosition, _
                    stroke:=mStroke, _
                    Transform:=plotAreaTransform
@@ -124,8 +144,11 @@ Public Sub Init(chrtObject As ChartObject)
         hLinePosition = hLinePosition + mMajorUnits
     Wend
     
-    Set mSvgBars = New SvgBars
-    Call mSvgBars.Init(chrtObject)
+    If mChartType = "xlXYScatter" Then
+        Call mSvgPoints.Init(chrtObject)
+    Else
+        Call mSvgBars.Init(chrtObject)
+    End If
 End Sub
 
 Public Function ToString$()
@@ -146,6 +169,10 @@ Public Function ToString$()
         ToString = ToString & vbTab & vbTab & verticalLabelsCollection(i).ToString
     Next i
     
-    ToString = ToString & mSvgBars.ToString
+    If mChartType = "xlXYScatter" Then
+'        ToString = ToString & mSvgPoints.ToString
+    Else
+        ToString = ToString & mSvgBars.ToString
+    End If
 End Function
 

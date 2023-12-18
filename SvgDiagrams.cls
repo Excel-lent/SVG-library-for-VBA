@@ -11,10 +11,12 @@ Option Explicit
 
 ' This is the main function that saves the charts as SVG.
 Public Sub Init(chrtObject As ChartObject, outputPath$)
+    Dim svgBarChrt As New SvgBarChart
+    
     Select Case chrtObject.Chart.ChartType
         Case xlColumnClustered
-            Dim svgBarChrt As New SvgBarChart
             Call svgBarChrt.ProcessAndSave(chrtObject, outputPath)
         Case xlXYScatter
+            Call svgBarChrt.ProcessAndSave(chrtObject, outputPath)
     End Select
 End Sub

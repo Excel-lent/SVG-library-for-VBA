@@ -80,22 +80,35 @@ Public Sub Init(chrtObject As ChartObject)
     
     spaceBetween = plotAreaWidth * mGapWidth / nVerticalLines / (1 + mGapWidth)
     offsetFirst = spaceBetween / 2
-    position = offsetFirst + plotAreaMinX
+    If mChartType = "xlXYScatter" Then
+        position = plotAreaMinX
+    Else
+        position = offsetFirst + plotAreaMinX
+    End If
     Dim mText As SvgText
     For j = 1 To nVerticalLines
         Set mText = New SvgText
-        mText.Init text:=CStr(mValues(j)), _
-                  posX:=position + plotAreaWidth / nVerticalLines / (1 + mGapWidth) / 2, _
-                  posY:=plotAreaHeight + plotAreaMinY + chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleY / 2, _
-                  rotationAngle:=todoRotationAngle, _
-                  textAnchor:="middle", _
-                  alignmentBaseline:="hanging", _
-                  Font:=mFont
-        
+        If mChartType = "xlXYScatter" Then
+            mText.Init text:=CStr(mValues(j)), _
+                       posX:=position, _
+                       posY:=plotAreaHeight + plotAreaMinY + chrtObject.Chart.Axes(xlCategory).TickLabelSpacing, _
+                       rotationAngle:=todoRotationAngle, _
+                       textAnchor:="middle", _
+                       alignmentBaseline:="hanging", _
+                       Font:=mFont
+        Else
+            mText.Init text:=CStr(mValues(j)), _
+                       posX:=position + plotAreaWidth / nVerticalLines / (1 + mGapWidth) / 2, _
+                       posY:=plotAreaHeight + plotAreaMinY + chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleY / 2, _
+                       rotationAngle:=todoRotationAngle, _
+                       textAnchor:="middle", _
+                       alignmentBaseline:="hanging", _
+                       Font:=mFont
+        End If
         Call horizontalLabelsCollection.Add(mText, CStr(j))
         
         If mChartType = "xlXYScatter" Then
-            position = position + plotAreaWidth / mValues.Count / (1 + mGapWidth) + spaceBetween
+            position = position + plotAreaWidth / (mValues.Count - 1)
         Else
             position = position + plotAreaWidth / UBound(mValues) / (1 + mGapWidth) + spaceBetween
         End If
@@ -124,20 +137,20 @@ Public Sub Init(chrtObject As ChartObject)
         Set mText = New SvgText
         If InStr(1, chrtObject.Chart.Axes(xlValue).TickLabels.NumberFormat, "%") <> 0 Then
             mText.Init text:=CStr(hLinePosition * 100 & "%"), _
-                      posX:=plotAreaMinX - chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleX / 2, _
-                      posY:=zeroY - hLinePosition * scaleY, _
-                      rotationAngle:=todoRotationAngle, _
-                      textAnchor:="end", _
-                      alignmentBaseline:="middle", _
-                      Font:=mFont
+                       posX:=plotAreaMinX - chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleX / 2, _
+                       posY:=zeroY - hLinePosition * scaleY, _
+                       rotationAngle:=todoRotationAngle, _
+                       textAnchor:="end", _
+                       alignmentBaseline:="middle", _
+                       Font:=mFont
         Else
             mText.Init text:=CStr(hLinePosition), _
-                      posX:=plotAreaMinX - chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleX / 2, _
-                      posY:=zeroY - hLinePosition * scaleY, _
-                      rotationAngle:=todoRotationAngle, _
-                      textAnchor:="end", _
-                      alignmentBaseline:="middle", _
-                      Font:=mFont
+                       posX:=plotAreaMinX - chrtObject.Chart.Axes(xlCategory).TickLabelSpacing * scaleX / 2, _
+                       posY:=zeroY - hLinePosition * scaleY, _
+                       rotationAngle:=todoRotationAngle, _
+                       textAnchor:="end", _
+                       alignmentBaseline:="middle", _
+                       Font:=mFont
         End If
         Call verticalLabelsCollection.Add(mText, CStr(hLinePosition))
         
@@ -170,7 +183,7 @@ Public Function ToString$()
     Next i
     
     If mChartType = "xlXYScatter" Then
-'        ToString = ToString & mSvgPoints.ToString
+        ToString = ToString & mSvgPoints.ToString
     Else
         ToString = ToString & mSvgBars.ToString
     End If

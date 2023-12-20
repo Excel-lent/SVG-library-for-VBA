@@ -47,8 +47,6 @@ Public Sub Init(chrtObject As ChartObject)
     nSeries = chrtObject.Chart.SeriesCollection.Count
     For i = 1 To nSeries
         Set rectangleCollection = New Collection
-        
-        mValues = chrtObject.Chart.SeriesCollection(i).Values
         rectangleWidth = 1 / (mGapWidth + chrtObject.Chart.SeriesCollection.Count)
         
         mFillColor = chrtObject.Chart.SeriesCollection(i).Format.Fill.ForeColor.RGB

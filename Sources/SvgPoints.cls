@@ -15,19 +15,20 @@ Option Explicit
 ' That is called from the function that saves one bar chart as SVG,
 ' That is called from the main function that saves all the charts as SVG.
 
-Private rectangleCollections As New Collection
+Private ellipseCollections As New Collection
 
 Public Sub Init(chrtObject As ChartObject)
     Dim i&, j!, nSeries#
-    Dim rectangleCollection As Collection
+    Dim ellipseCollection As Collection
+    Dim mValues As Variant
     Dim mX As Variant
     Dim mY As Variant
-    Dim mGapWidth!, offsetFirst!, rectangleWidth!
+    Dim mRadius!
     Dim plotAreaMinX!, plotAreaMinY!, plotAreaWidth!, plotAreaHeight!
     Dim mFillColor&, nBars&
     Dim scaleX!, scaleY!, zeroX!, zeroY!
     Dim mMaximumScale!, mMinimumScale!
-    Dim rectangle As SvgRectangle
+    Dim mEllipse As SvgEllipse
     Dim barsTransform As SvgTransform
     
     plotAreaMinX = chrtObject.Chart.plotArea.InsideLeft
@@ -44,52 +45,47 @@ Public Sub Init(chrtObject As ChartObject)
     
     nSeries = chrtObject.Chart.SeriesCollection.Count
     For i = 1 To nSeries
-        Set rectangleCollection = New Collection
+        Set ellipseCollection = New Collection
         
-        mX = chrtObject.Chart.SeriesCollection(i).Values
+        mX = chrtObject.Chart.SeriesCollection(i).XValues
         mY = chrtObject.Chart.SeriesCollection(i).Values
-        
-        rectangleWidth = 1 / (mGapWidth + chrtObject.Chart.SeriesCollection.Count)
-        
-        mFillColor = chrtObject.Chart.SeriesCollection(i).Format.Fill.ForeColor.RGB
         
         zeroX = plotAreaMinX ' - offsetFirst / 2 - spaceBetween / 2 - (nSeries - i) * plotAreaWidth / UBound(mValues) / (mGapWidth + nSeries)
         scaleX = plotAreaWidth / (chrtObject.Chart.Axes(xlCategory).MaximumScale - chrtObject.Chart.Axes(xlCategory).MinimumScale)
         
+        ' Marker size in points. For plot in (mX, mY) coordinate system it has to be scaled!
+        mRadius = chrtObject.Chart.SeriesCollection(i).MarkerSize * (chrtObject.Chart.Axes(xlCategory).MaximumScale - chrtObject.Chart.Axes(xlCategory).MinimumScale) / scaleX
+        mFillColor = chrtObject.Chart.SeriesCollection(i).MarkerForegroundColor
+        
         Set barsTransform = New SvgTransform
         barsTransform.Init scalingX:=scaleX, scalingY:=-scaleY, offsetX:=zeroX, offsetY:=zeroY
         
-        For j = 1 To UBound(mValues)
-            Set rectangle = New SvgRectangle
-            If mValues(j) > 0 Then
-                rectangle.Init x:=j, _
-                               y:=0, _
-                               height:=CDbl(mValues(j)), _
-                               Width:=rectangleWidth, _
-                               fillColor:=mFillColor, _
-                               Transform:=barsTransform
-            Else
-                rectangle.Init x:=j, _
-                               y:=CDbl(mValues(j)), _
-                               height:=-mValues(j), _
-                               Width:=rectangleWidth, _
-                               fillColor:=mFillColor, _
-                               Transform:=barsTransform
-            End If
-            Call rectangleCollection.Add(rectangle, CStr(j))
+        ' VERY IMPORTANT NOTE!
+        ' Transform is necessary to scale the real coordinates (plotAreaMinX, plotAreaMinY, plotAreaWidth, plotAreaHeight) in points
+        ' to plot scale (mX, mY) in arbitrary units. The SVG "transform" function distorts circles to ellipses.
+        ' Therefore to show circles in SVG graph, the ellipses with radiusX:=mRadius / scaleX and radiusY:=mRadius / scaleY should be used.
+        For j = 1 To UBound(mX)
+            Set mEllipse = New SvgEllipse
+            mEllipse.Init x:=CDbl(mX(j)), _
+                          y:=CDbl(mY(j)), _
+                          radiusX:=mRadius / scaleX, _
+                          radiusY:=mRadius / scaleY, _
+                          fillColor:=mFillColor, _
+                          Transform:=barsTransform
+            Call ellipseCollection.Add(mEllipse, CStr(j))
         Next j
-        Call rectangleCollections.Add(rectangleCollection)
+        Call ellipseCollections.Add(ellipseCollection)
     Next i
 End Sub
 
 Public Function ToString$()
     Dim i&, j&
-    Dim rectangleCollection As Collection
+    Dim ellipseCollection As Collection
     
-    For i = 1 To rectangleCollections.Count
-        Set rectangleCollection = rectangleCollections(i)
-        For j = 1 To rectangleCollection.Count
-            ToString = ToString & vbTab & vbTab & rectangleCollection(j).ToString
+    For i = 1 To ellipseCollections.Count
+        Set ellipseCollection = ellipseCollections(i)
+        For j = 1 To ellipseCollection.Count
+            ToString = ToString & vbTab & vbTab & ellipseCollection(j).ToString
         Next j
     Next i
 End Function

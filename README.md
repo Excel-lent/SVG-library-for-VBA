@@ -7,6 +7,7 @@ An example of the table is available [here](https://github.com/Excel-lent/SVG-li
 
 The benefits are:
 * Smaller size of the picture, all benefits of vector graphics (sharp, scallable images):
+
 | <center>JPG (39 kB)</center> | <center>SVG (7 kB)</center> |
 |--------------------|------------------------------------|
 | <img src='./Images/Picture1.jpg' width='500'> | <img src='./Images/Picture1.svg' width='500'> |

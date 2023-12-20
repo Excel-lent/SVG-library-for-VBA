@@ -1,0 +1,44 @@
+<svg viewBox="0 0 381 210" xmlns="http://www.w3.org/2000/svg">
+	<rect x="0" y="0" width="381" height="210" fill="rgb(255,255,255)" transform="matrix(1 0 0 1 0 0)" stroke="rgb(217,217,217)" stroke-width="1"/>
+		<line x1="0" y1="0" x2="8" y2="0" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="200" x2="8" y2="200" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="400" x2="8" y2="400" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="600" x2="8" y2="600" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="800" x2="8" y2="800" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="1000" x2="8" y2="1000" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<line x1="0" y1="1200" x2="8" y2="1200" stroke="rgb(217,217,217)" stroke-width="7.9" transform="matrix(41.6 0 0 -0.127 29.1 159)" />
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(29.1, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >0</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(84.6, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >2</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(140, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >4</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(195, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >6</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(251, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >8</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(306, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >10</text>
+		<text text-anchor="middle" alignment-baseline="hanging" transform="translate(362, 161)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >12</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 159)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >0</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 134)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >200</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 108)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >400</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 83)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >600</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 57.7)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >800</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 32.3)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >1000</text>
+		<text text-anchor="end" alignment-baseline="middle" transform="translate(-12.5, 7)" font-size="9" font-family="Calibri" fill="rgb(89,89,89)" >1200</text>
+		<ellipse cx="1" cy="1" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="2" cy="4" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="3" cy="9" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="4" cy="16" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="5" cy="25" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="6" cy="36" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="7" cy="49" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="8" cy="64" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="9" cy="81" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="10" cy="100" rx="0.078" ry="17.1" fill="rgb(68,114,196)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="1" cy="1" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="2" cy="8" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="3" cy="27" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="4" cy="64" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="5" cy="125" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="6" cy="216" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="7" cy="343" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="8" cy="512" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="9" cy="729" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+		<ellipse cx="10" cy="1000" rx="0.078" ry="17.1" fill="rgb(237,125,49)" transform="matrix(27.7 0 0 -0.127 29.1 159)"/>
+</svg>

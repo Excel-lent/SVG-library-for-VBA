@@ -11,6 +11,7 @@ Dim CurAddInPath As String
 Const sAppName As String = "SVGlib"
 Const sFilename As String = sAppName & ".xlam"
 Const sRegKey As String = "SVGlib"    ''' RegKey for settings
+Const Version As String = "0.0.6"
 
 Sub Install()
     vReply = MsgBox("This will install " & sAppName & vbNewLine & _
@@ -36,10 +37,23 @@ Sub Install()
             Exit Sub
         End If
         With AddIns.Add(FileName:=AddInLibPath)
-        .Installed = True
+            .Installed = True
         End With
+        
+        
+        Dim config$
+        config = "<?xml version=""1.0"" encoding=""utf-8""?>" & vbCrLf
+        config = "<AddIn Version=""" & Version & """ Name=""" & sRegKey & """ />"
+        
+        Dim iFile&
+        iFile = FreeFile
+        Open Application.UserLibraryPath & "\" & sRegKey & ".xml" For Binary As #iFile
+        Put #iFile, , config
+        Close #iFile
+        
+        Application.CommandBars(1).FindControl(ID:=943, recursive:=True).Execute
     Else
-    vReply = MsgBox(prompt:="Install Cancelled", Buttons:=vbOKOnly, Title:=sAppName & " Setup")
+        vReply = MsgBox(prompt:="Install Cancelled", Buttons:=vbOKOnly, Title:=sAppName & " Setup")
     End If
 End Sub
 
@@ -90,6 +104,8 @@ Sub Uninstall()
         Workbooks(sFilename).Close False
         Kill AddInLibPath
         DeleteSetting sRegKey
+        Kill Application.UserLibraryPath & "\" & sRegKey & ".xml"
+        
         MsgBox " The " & sAppName & " has been removed from your computer." _
         & vbNewLine & "To complete the removal, please select the " & sAppName _
         & vbNewLine & "in the following dialog and acknowledge the removal" _
